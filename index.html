@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ronak's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Navbar styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            background-color: rgb(18, 18, 62);
+            padding: 0 5vw;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .left {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Hamburger Icon (mobile only) */
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Navigation links */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: rgb(153, 153, 226);
+        }
+
+        /* First Section */
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 60px 10vw;
+        }
+
+        .firstSection>div {
+            flex: 1;
+            min-width: 280px;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .leftSection {
+            font-size: 2.5rem;
+        }
+
+        .leftSection p {
+            font-size: 1.6rem;
+            margin: 10px 0;
+        }
+
+        .leftSection .btn {
+            background-color: #0d47a1;
+            color: #ffffff;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(13, 71, 161, 0.3);
+        }
+
+        .leftSection .btn:hover {
+            background-color: #1565c0;
+            box-shadow: 0 6px 16px rgba(13, 71, 161, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .rightSection img {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .purple {
+            color: rgb(170, 107, 228);
+        }
+
+        .text-grey {
+            color: grey;
+        }
+
+        #element {
+            color: rgb(170, 107, 228);
+        }
+
+        /* Work Experience Section */
+        .secondSection {
+            max-width: 90vw;
+            margin: auto;
+            padding: 40px 0;
+        }
+
+        .secondSection h1 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .secondSection .box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            /* background: white; */
+            height: auto;
+            margin: 40px 0;
+            padding: 20px 0;
+
+        }
+
+        .secondSection .vertical {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #1e1e3f;
+            color: rgb(170, 107, 228);
+            padding: 20px;
+            margin: 10px;
+            width: 250px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 12px 16px rgba(194, 78, 203, 0.3);
+        }
+
+        .secondSection .vertical:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 10px 24px white;
+        }
+
+        .image-top {
+            width: 30px;
+            margin-bottom: 10px;
+        }
+
+        .vertical-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .vertical-desc {
+            color: gray;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0e0e1a;
+            padding: 40px 10vw;
+            color: white;
+        }
+
+        .footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer>div {
+            margin: 10px;
+            min-width: 150px;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .aboutSection {
+            max-width: 90vw;
+            margin: auto;
+            padding: 40px 0;
+
+            color: white;
+        }
+
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: left;
+            justify-content: left;
+        }
+
+        .about-left img {
+            width: 350px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            object-fit: cover;
+            margin: 100px;
+        }
+
+
+        .about-right {
+            max-width: 600px;
+        }
+
+        .about-right h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: white;
+            padding: 0;
+            margin: 0 0 20px 0;
+            text-align: left;
+        }
+
+
+        .about-right p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .about-right h3 {
+            margin-top: 20px;
+            font-size: 1.3rem;
+            color: #e0e0e0;
+        }
+
+        .aboutSection h1 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .services {
+
+            padding: 80px 10%;
+        }
+
+        .services .heading {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 50px;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-box {
+            background-color: #1e1e3f;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 12px 16px rgba(194, 78, 203, 0.3);
+        }
+
+        .service-box img {
+            width: 60px;
+            margin-bottom: 20px;
+        }
+
+        .service-box h3 {
+            color: rgb(170, 107, 228);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-box p {
+            color: #ccc;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .service-box:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 10px 24px white;
+        }
+
+        .projects-section {
+            padding: 50px 10%;
+
+            color: #fff;
+        }
+
+        .projects-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .project {
+            background-color: #1e1e3f;
+            margin-bottom: 30px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 12px 16px rgba(194, 78, 203, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 10px 24px white;
+        }
+
+        .project h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: rgb(170, 107, 228);
+        }
+
+        .project p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .more-text {
+            display: none;
+        }
+
+        .read-more-btn {
+            margin-top: 15px;
+            background-color: white;
+            border: none;
+            padding: 10px 20px;
+            color: rgb(170, 107, 228);
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .read-more-btn:hover {
+            background-color: rgb(85, 67, 101);
+        }
+
+        /* Contact Form Styles */
+        #contact {
+            padding: 60px 20px;
+            background-color: #111827;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-container {
+            max-width: 600px;
+            width: 100%;
+            background-color: #1f2937;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #93c5fd;
+        }
+
+        #contactForm input,
+        #contactForm textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #374151;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        #contactForm button {
+            width: 100%;
+            padding: 12px;
+            background-color: #3b82f6;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        #contactForm button:hover {
+            background-color: #2563eb;
+        }
+
+        #status {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 500;
+        }
+        .footer-second ul a {
+            text-decoration: none;
+            color: white;
+        }
+
+
+
+
+
+
+        /* Responsive Navbar */
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                background-color: rgb(18, 18, 62);
+                padding: 20px 0;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .firstSection {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .leftSection {
+                font-size: 2rem;
+            }
+
+            .leftSection p {
+                font-size: 1.2rem;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer>div {
+                text-align: center;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .leftSection {
+                font-size: 1.5rem;
+            }
+
+            .leftSection p {
+                font-size: 1rem;
+            }
+
+            .leftSection .btn {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+
+            .vertical-title,
+            .vertical-desc {
+                font-size: 0.75rem;
+            }
+
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-left img {
+                width: 200px;
+            }
+
+            .about-right h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-right p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Ronak's Portfolio</div>
+            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+            <ul id="nav-links" class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main id="home">
+        <section class="firstSection">
+            <div class="leftSection">
+                Hi, Myself <br> <span class="purple">Ronak Gujarati</span>
+                <p>I'm a passionate</p>
+                <span id="element"></span>
+                <div class="buttons">
+               <a href="RonakGujarati_Resume.pdf" target="_blank"><button class="btn">Download Resume</button></a>  
+            <a href="https://github.com/ronakk11" target="_blank"><button class="btn">GitHub Profile</button></a> 
+                </div>
+            </div>
+            <div class="rightSection">
+                <img src="bgimg.png" alt="">
+            </div>
+
+        </section>
+        <hr style="border: none; background-color: #8a94d3; height: 1.2px; margin: 40px 84px ;">
+        <section class="secondSection">
+            <span class="text-grey">What I have done so far</span>
+            <h1>Work Experience</h1>
+
+            <div class="box">
+                <div class="vertical">
+                    <img class="image-top" src="developer.png" alt="">
+                    <div class="vertical-title">
+                        Web Development Intern <br>Jul-Dec 2024
+                    </div>
+                    <div class="vertical-desc">
+                        Designed and developed responsive web pages using HTML, CSS, JavaScript, and Bootstrap.Built
+                        full-stack features including authentication and REST API integration.Collaborated with a senior
+                        developer team to deploy internal tools.
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" src="developer.png" alt="">
+                    <div class="vertical-title">
+                        Freelance Web Developer <br>Apr 2024 – Present
+                    </div>
+                    <div class="vertical-desc">
+                        Developed a personal portfolio website and e-commerce platforms using modern web
+                        technologies.Created mobile-friendly UIs and optimized SEO for improved visibility.Handled full
+                        project lifecycle from requirements to deployment.
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" src="developer.png" alt="">
+                    <div class="vertical-title">
+                        Project Lead – Final Year Project <br>Jan - May 2025
+                    </div>
+                    <div class="vertical-desc">
+                        Led a team to build a deep learning model using VGG16 for medical image classification.Trained
+                        and tested the model using TensorFlow and Python.Designed a user-friendly web interface for
+                        uploading images and viewing predictions.
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" src="developer.png" alt="">
+                    <div class="vertical-title">
+                        Full Stack Developer Intern<br>Jun – Jul 2025
+                    </div>
+                    <div class="vertical-desc">
+                        Contributed to GitHub repositories for open-source web applications.Worked on Node.js backend
+                        APIs and React-based frontend interfaces.Gained hands-on experience in version control, issue
+                        tracking, and Agile sprints.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr style="border: none; background-color: #8a94d3; height: 1.2px; margin: 40px 84px ;">
+
+        <section class="aboutSection" id="about">
+            <h1>About Me</h1>
+            <div class="about-container">
+
+
+                <div class="about-left">
+                    <img src="profileimage.jpeg" alt="Ronak's Photo" />
+                </div>
+                <div class="about-right">
+
+                    <p>
+                        Hello! I'm <span>Ronak Gujarathi</span>, a dedicated and curious Electronics and
+                        Telecommunication
+                        (ENTC) graduate from <span>Vishwakarma Institute of Information Technology, Pune</span>.
+                        Throughout
+                        my academic journey, I've developed a strong interest in software development,
+                        particularly in
+                        building
+                        modern web applications and intuitive user experiences.
+                    </p>
+
+                    <p>
+                        My technical toolkit includes languages and tools such as <span>Python, Java, C/C++,
+                            HTML, CSS,
+                            JavaScript, Bootstrap</span>, and <span>MySQL</span>. I enjoy combining these skills
+                        to
+                        develop responsive and user-friendly websites with both frontend and backend logic.
+                    </p>
+
+                    <p>
+                        I began exploring full-stack development during my first semester, when I interned at
+                        <span>Gudel
+                            India Pvt. Ltd.</span>. This hands-on experience helped me understand the industry’s
+                        best
+                        practices and the importance of clean code, teamwork, and continuous learning.
+                    </p>
+
+                    <p>
+                        I’m currently focused on sharpening my skills in full-stack development, contributing to
+                        meaningful
+                        projects, and preparing myself for real-world opportunities in the tech industry. I
+                        believe in
+                        building
+                        software that not only functions efficiently but also creates a positive impact for its
+                        users.
+                    </p>
+                </div>
+        </section>
+        <hr style="border: none; background-color: #8a94d3; height: 1.2px; margin: 40px 84px ;">
+        <section class="services" id="services">
+            <h2 class="heading">My <span>Services</span></h2>
+            <div class="services-container">
+
+                <div class="service-box">
+                    <img src="digital-services.png" alt="Web Dev">
+                    <h3>Web Development</h3>
+                    <p>Responsive and interactive websites using modern HTML, CSS, JavaScript, and frameworks.</p>
+                </div>
+
+                <div class="service-box">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2721/2721296.png" alt="Software Dev">
+                    <h3>Software Development</h3>
+                    <p>Designing efficient software solutions tailored to business or user needs.</p>
+                </div>
+
+                <div class="service-box">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="UI/UX">
+                    <h3>UI/UX Design</h3>
+                    <p>Creating intuitive and user-friendly interfaces that enhance user experience.</p>
+                </div>
+
+                <div class="service-box">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1149/1149168.png" alt="Arduino">
+                    <h3>Embedded Systems</h3>
+                    <p>Hands-on work with microcontrollers, sensors, and IoT using Arduino and Raspberry Pi.</p>
+                </div>
+
+                <div class="service-box">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055689.png" alt="DBMS">
+                    <h3>Database Management</h3>
+                    <p>Efficient handling, optimization, and querying of MySQL & NoSQL databases.</p>
+                </div>
+
+                <div class="service-box">
+                    <img src="programming.png" alt="Python">
+                    <h3>Python Scripting</h3>
+                    <p>Automation and scripting solutions using Python for data processing and logic building.</p>
+                </div>
+
+            </div>
+        </section>
+        <hr style="border: none; background-color: #8a94d3; height: 1.2px; margin: 40px 84px ;">
+        <section id="projects" class="projects-section">
+            <h2>Projects</h2>
+
+            <div class="project">
+                <h3>Skin Disease Prediction using VGG16</h3>
+                <p>
+                    A deep learning-based project that uses VGG16 to classify skin diseases...
+                    <span class="more-text">
+                        <br>
+                        This model is trained on a dataset containing thousands of skin disease images. The VGG16
+                        architecture is fine-tuned for multi-class classification of skin conditions such as acne,
+                        eczema, psoriasis, etc. The model achieves high accuracy using transfer learning. The frontend
+                        allows users to upload an image, and the backend returns a diagnosis. The system is designed for
+                        medical assistance and educational use.
+                    </span>
+                </p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+
+            <div class="project">
+                <h3>Dynamic HMI Navigation System</h3>
+                <p>
+                    A browser-based simulation of an HMI (Human-Machine Interface) screen that...
+                    <span class="more-text">
+                        <br>
+                        This project mimics the TIA Portal HMI Text List screen. It displays live data fetched from a
+                        Siemens PLC via WebSocket/JS integration. Each value corresponds to a different screen view or
+                        state. Buttons dynamically change states, enabling efficient testing of industrial interfaces
+                        without needing a physical HMI. The goal is to simplify the debugging process and create
+                        interactive UIs for automation systems.
+                    </span>
+                </p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+
+            <div class="project">
+                <h3>Forever – Buy, Sell, Recycle Platform</h3>
+                <p>
+                    A sustainable fashion marketplace built using full-stack technologies...
+                    <span class="more-text">
+                        <br>
+                        Forever is a web platform that promotes circular fashion. Users can buy second-hand clothes,
+                        sell their unused items, or recycle them. The backend (Node.js + MongoDB) manages user data,
+                        payments, and product listings. The frontend uses React for a responsive experience. It supports
+                        authentication, cart system, product filters, and admin panel. This platform addresses fashion
+                        waste through tech.
+                    </span>
+                </p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+
+            <div class="project">
+                <h3>Smart Home Automation using Ultrasonic Sensor</h3>
+                <p>
+                    A robotics project that allows Bluetooth-based movement control while using an ultrasonic sensor to
+                    detect obstacles in real time.
+                    <span class="more-text">
+                        <br>
+                        Built with Arduino and mobile app interface.This project involves designing a smart car that can
+                        be controlled via a smartphone using Bluetooth communication. It is also equipped with an
+                        ultrasonic sensor to detect obstacles in real-time.
+                    </span>
+                </p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+            <div class="project">
+                <h3>Smart Home Automation using Arduino and Blynk</h3>
+                <p>
+                    IoT-based system enabling control of home appliances through smartphone using Blynk app and Arduino
+                    board.
+                    <span class="more-text">
+                        <br>
+                        Emphasizes low-cost automation.This project provides a low-cost and efficient home automation
+                        system
+                        that allows users to control household appliances using a mobile app developed with the Blynk
+                        platform.
+                    </span>
+                </p>
+                <button class="read-more-btn">Read More</button>
+            </div>
+
+        </section>
+        <hr style="border: none; background-color: #8a94d3; height: 1.2px; margin: 40px 84px ;">
+        <section id="contact">
+            <div class="contact-container">
+                <h2>Contact Me</h2>
+                <form id="contactForm">
+                    <input name="name" type="text" placeholder="Enter your name" required>
+                    <input name="email" type="email" placeholder="Enter your email" required>
+                    <textarea name="message" placeholder="Enter message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+                <div id="status"></div>
+            </div>
+        </section>
+
+
+
+
+
+
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="footer-first">
+                <h3>Ronak Gujarati's Portfolio</h3>
+            </div>
+
+            <div class="footer-second">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-third">
+
+            </div>
+            <div class="footer-fourth">
+
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!-- Setup and start animation! -->
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['ENTC Engineer,', 'FS Developer,', 'Web Developer,', 'AIML Enthusiast.'],
+            typeSpeed: 50,
+        });
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('show');
+        }
+
+        const buttons = document.querySelectorAll('.read-more-btn');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const moreText = btn.previousElementSibling.querySelector('.more-text');
+                moreText.style.display = moreText.style.display === 'inline' ? 'none' : 'inline';
+                btn.textContent = btn.textContent === 'Read More' ? 'Read Less' : 'Read More';
+            });
+        });
+
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycby75GAK8pfTNGrQtLB13bObcnrgk7z1Jme1IkAIepPANpHC6vj45Eo4v4nnpPnQBTGCeg/exec';
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('status');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, {
+                method: 'POST',
+                body: new FormData(form)
+            })
+                .then(response => {
+                    status.innerHTML = "✅ Thanks for contacting me!";
+                    form.reset();
+                })
+                .catch(error => {
+                    status.innerHTML = "❌ Error! Failed to send.";
+                    console.error("Fetch error:", error);
+                });
+        });
+
+    </script>
+</body>
+
+</html>
